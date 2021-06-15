@@ -1,11 +1,13 @@
 from flask import Flask, jsonify
 import logging
+import os
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def hello():
+    logging.info("Main request successfull")
     app.logger.info("Main request successfull")
 
     return "Hello World!"
@@ -13,6 +15,7 @@ def hello():
 
 @app.route("/status")
 def status():
+    logging.info("Status request successfull")
     app.logger.info("Status request successfull")
 
     return jsonify({"result": "OK - healthy"})
@@ -20,6 +23,7 @@ def status():
 
 @app.route("/metrics")
 def metrics():
+    logging.info("Metrics request successfull")
     app.logger.info("Metrics request successfull")
 
     return jsonify(
@@ -29,6 +33,7 @@ def metrics():
 
 if __name__ == "__main__":
     # stream logs to a file
-    logging.basicConfig(filename="app.log", level=logging.DEBUG)
+    filename = os.path.join(os.getcwd(), "ram.log")
+    logging.basicConfig(filename=filename)
 
     app.run(host="0.0.0.0")

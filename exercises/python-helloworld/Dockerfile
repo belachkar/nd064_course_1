@@ -6,4 +6,4 @@ WORKDIR /app
 RUN pip install -r requirements.txt
 
 # Command to run on container start
-CMD [ "pytohn", "app.py" ]
+CMD [ "python", "app.py" ]

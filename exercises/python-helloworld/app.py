@@ -9,7 +9,6 @@ app = Flask(__name__)
 def hello():
     logging.info("Main request successfull")
     app.logger.info("Main request successfull")
-
     return "Hello World!"
 
 
@@ -17,7 +16,6 @@ def hello():
 def status():
     logging.info("Status request successfull")
     app.logger.info("Status request successfull")
-
     return jsonify({"result": "OK - healthy"})
 
 
@@ -37,3 +35,4 @@ if __name__ == "__main__":
     logging.basicConfig(filename=filename)
 
     app.run(host="0.0.0.0")
+    print("Running on http://127.0.0.1:5000")

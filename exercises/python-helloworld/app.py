@@ -33,6 +33,4 @@ if __name__ == "__main__":
     # stream logs to a file
     filename = os.path.join(os.getcwd(), "ram.log")
     logging.basicConfig(filename=filename)
-
-    app.run(host="0.0.0.0")
-    print("Running on http://127.0.0.1:5000")
+    app.run(debug=True, host="127.0.0.1")

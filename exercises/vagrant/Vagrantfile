@@ -5,6 +5,7 @@ Vagrant.configure("2") do |config|
 
   # set the image for the vagrant box
   config.vm.box = "opensuse/Leap-15.2.x86_64"
+  config.vm.hostname = "Opensuse-Leap-15.2-x86_64"
 
   ## Set the image version
   # config.vm.box_version = "15.2.31.212"
@@ -14,6 +15,7 @@ Vagrant.configure("2") do |config|
 
   # consifure the parameters for VirtualBox provider
   config.vm.provider "virtualbox" do |vb|
+    vb.name = "Opensuse-Leap-15.2"
     vb.memory = "2096"
     vb.cpus = 2
     vb.customize ["modifyvm", :id, "--ioapic", "on"]

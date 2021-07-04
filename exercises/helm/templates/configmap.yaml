@@ -1,7 +1,7 @@
 apiVersion: v1
 data:
-  version: {{ .Values.image.tag }}
+  version: { { .Values.image.tag } }
 kind: ConfigMap
 metadata:
   name: "{{ .Values.image.repository }}-{{ .Values.image.tag }}"
-  namespace: "{ { .Values.namespace.name } }""
+  namespace: "{ { .Values.namespace.name } }"

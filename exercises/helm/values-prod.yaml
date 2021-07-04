@@ -2,8 +2,7 @@ namespace:
   name: prod
 
 image:
-  repository: nginx
-  tag: 1.17.0
+  version: 1.17.0
 
 replicaCount: 2
 

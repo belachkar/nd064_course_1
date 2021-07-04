@@ -2,8 +2,7 @@ namespace:
   name: staging
 
 image:
-  repository: nginx
-  tag: 1.18.0
+  version: 1.18.0
 
 replicaCount: 1
 

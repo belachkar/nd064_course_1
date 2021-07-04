@@ -8,5 +8,6 @@ image:
 replicaCount: 1
 
 resources:
-  cpu: "50m"
-  memory: "128Mi"
+  requests:
+    cpu: 50m
+    memory: 128Mi

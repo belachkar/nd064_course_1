@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: { { .Values.image.repository } }
+    tag: { { .Values.image.tag } }
+  name: "{{ .Values.image.repository }}-{{ .Values.image.tag }}"
+  namespace: { { .Values.namespace.name } }
+spec:
+  replicas: { { .Values.replicaCount } }
+  selector:
+    matchLabels:
+      app: { { .Values.image.repository } }
+      tag: { { .Values.image.tag } }
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: { { .Values.image.repository } }
+        tag: { { .Values.image.tag } }
+    spec:
+      containers:
+        - name: "{{ .Values.image.repository }}-{{ .Values.image.tag }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: { { .Values.imagePullPolicy } }
+          resources:
+            requests:
+            memory: { { .Values.resources.memory } }
+            cpu: { { .Values.resources.cpu } }

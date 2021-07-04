@@ -8,10 +8,10 @@ metadata:
   namespace: "{{ .Values.namespace.name }}"
 spec:
   ports:
-    - port: "{{ .Values.service.port }}"
+    - port: { { .Values.service.port } }
       protocol: TCP
       targetPort: 8111
   selector:
     app: "{{ .Values.image.repository }}"
     tag: "{{ .Values.image.tag }}"
-  type: "{{ .Values.service.type }}"
+  type: { { .Values.service.type } }
